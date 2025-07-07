@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Contact Button</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            width: fit-content;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-button:active {
+            transform: translateY(0);
+        }
+        
+        .whatsapp-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .whatsapp-button:hover::before {
+            left: 100%;
+        }
+        
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background-color: white;
+            -webkit-mask: url("https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/white/svg/whatsapp.svg") no-repeat center;
+            mask: url("https://raw.githubusercontent.com/encharm/Font-Awesome-SVG-PNG/master/white/svg/whatsapp.svg") no-repeat center;
+        }
+        
+        .explanation {
+            max-width: 600px;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .explanation h2 {
+            margin-bottom: 15px;
+            color: #128C7E;
+        }
+        
+        .explanation p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .explanation code {
+            display: block;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .phone-input {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+        
+        .phone-input input {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .phone-input button {
+            padding: 10px 15px;
+            background-color: #128C7E;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <!-- Demo WhatsApp Button -->
+        <a href="https://wa.me/+254790053594" class="whatsapp-button">
+            <span class="whatsapp-icon"></span>
+            Chat on WhatsApp
+        </a>
+        
+        <!-- Explanation Section -->
+        <div class="explanation">
+            <h2>How to Add a WhatsApp Link to Your Website</h2>
+            <p>This page demonstrates a WhatsApp contact button that will open WhatsApp with your number.</p>
+            
+            <h3>Basic Implementation:</h3>
+            <p>Create a link with this format:</p>
+            <code>&lt;a href="https://wa.me/PHONE_NUMBER"&gt;Chat on WhatsApp&lt;/a&gt;</code>
+            
+            <p>Replace <strong>PHONE_NUMBER</strong> with the full international phone number (without any +, - or spaces).</p>
+            
+            <h3>Example:</h3>
+            <code>&lt;a href="https://wa.me/+254105565102"&gt;Chat on WhatsApp&lt;/a&gt;</code>
+            
+            <h3>Additional Features:</h3>
+            <p>You can also:</p>
+            <ol>
+                <li>Add predefined text: <code>https://wa.me/PHONE_NUMBER?text=YOUR_MESSAGE</code></li>
+                <li>Create a group chat: <code>https://chat.whatsapp.com/GROUP_INVITE_CODE</code></li>
+                <li>Include country code but no plus sign (+), spaces, or dashes (-)</li>
+            </ol>
+            
+            <div class="phone-input">
+                <h3>Try It With Your Number:</h3>
+                <input type="text" id="phoneNumber" placeholder="Enter phone number (e.g., 15551234567)">
+                <button onclick="updateWhatsAppLink()">Update Button</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function updateWhatsAppLink() {
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            if (phoneNumber) {
+                const whatsappButton = document.querySelector('.whatsapp-button');
+                whatsappButton.href = `https://wa.me/${phoneNumber}`;
+                alert(`WhatsApp link updated to: https://wa.me/${phoneNumber}`);
+            } else {
+                alert('Please enter a phone number first');
+            }
+        }
+    </script>
+</body>
+</html>
