@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustCashMmf - Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(4, 218, 247, 0.1);
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #05b1d7;
+            box-shadow: 0 0 0 3px rgba(5, 211, 247, 0.3);
+        }
+        #submitBtn {
+            transition: all 0.3s ease;
+        }
+        #submitBtn:hover {
+            background-color: #0699b3;
+        }
+        .success-message {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        .active-success {
+            opacity: 1;
+            height: auto;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-indigo-700 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1ee25a96-12af-4134-8e36-e83eeb1c3fdf.png" alt="TrustCashMmf logo with secure vault and dollar sign symbol" class="mr-3 rounded-full w-8 h-8">
+                    <h1 class="text-2xl font-bold">TrustCashMmf</h1>
+                </div>
+                <nav>
+                    <ul class="flex space-x-6">
+                        <li><a href="index.html" class="hover:text-indigo-200">Home</a></li>
+                        <li><a href="about.html" class="hover:text-indigo-200">about</a></li>
+                        <li><a href="investments_plans.html" class="hover:text-indigo-200">plans</a></li>
+                        <li><a href="Contacts.html" class="font-semibold hover:text-indigo-200">Contact</a></li>
+                        <li><a href="Howitworks.html" class="font-semibold hover:text-indigo-200">How it works</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="mt-16 text-center">
+                <h2 class="text-4xl font-bold mb-4">How Can We Help You?</h2>
+                <p class="max-w-2xl mx-auto text-lg text-indigo-100">Our team is ready to assist with all your financial needs. Contact us through any of the methods below.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16">
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="bg-white rounded-xl shadow-lg p-8 contact-form">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">Send Us a Message</h2>
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="John Smith" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="john@example.com" required>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <select id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none">
+                            <option value="">Select a subject</option>
+                            <option value="account">Account Inquiry</option>
+                            <option value="investment">Investment Advice</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="Your message here..." required></textarea>
+                    </div>
+                    <div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <input type="checkbox" id="consent" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded mt-1" required>
+                            </div>
+                            <div class="ml-3">
+                                <label for="consent" class="text-sm text-gray-700">I consent to TrustCashMmf processing my personal data in accordance with the privacy policy.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="submitBtn" type="submit" class="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+                <div id="successMessage" class="success-message text-center">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-green-600 mb-4">
+                        <i class="fas fa-check text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Message Sent Successfully!</h3>
+                    <p class="text-gray-600">We've received your message and will respond within 24 hours.</p>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-white rounded-xl shadow-lg p-8 contact-card transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-map-marker-alt text-indigo-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Visit Us</h3>
+                    </div>
+                    <p class="text-gray-600">12th Floor, Old Mutual Tower<br>
+                    Nyeri Businesscenter Road, Nyeri<br>
+                    Kenya</p>
+                    <div class="mt-6">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0dce7172-a5e3-474e-b7a5-410be58b39b9.png" alt="UAP Old Mutual Tower in Nairobi, Kenya - Modern glass skyscraper with TrustCashMmf signage" class="w-full rounded-lg">
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 contact-card transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-headset text-indigo-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Call Us</h3>
+                    </div>
+                    <p class="text-gray-600 mb-2">General Inquiries: <span class="text-indigo-600 font-medium">+254 20 123 4567</span></p>
+                    <p class="text-gray-600">24/7 Support: <span class="text-indigo-600 font-medium">+254 700 123 456</span></p>
+                    <div class="mt-6">
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <p class="text-sm text-gray-600">Our call center hours are Monday-Friday from 8:00 AM to 6:00 PM EAT.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 contact-card transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-envelope text-indigo-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Email Us</h3>
+                    </div>
+                    <p class="text-gray-600 mb-2"><span class="font-medium">Customer Support:</span> support.ke@trustcashmmf.com</p>
+                    <p class="text-gray-600 mb-2"><span class="font-medium">Business Inquiries:</span> partnerships.ke@trustcashmmf.com</p>
+                    <p class="text-gray-600"><span class="font-medium">Security Concerns:</span> security.ke@trustcashmmf.com</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-16 bg-indigo-700 rounded-xl p-12 text-white">
+            <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-4">Connect With Us</h2>
+                <p class="text-lg text-indigo-100 mb-8">Follow TrustCashMmf on our social channels for updates, financial tips, and community engagement.</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="whatsapplink.html" class="bg-indigo-600 hover:bg-indigo-800 w-12 h-12 rounded-full flex items-center justify-center transition-colors">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-16 bg-white rounded-xl shadow-lg overflow-hidden">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/45bacb10-3671-41e3-9818-df5bd4b83991.png" alt="Diverse team of TrustCashMmf professionals working in a modern office with financial charts displayed" class="w-full">
+            <div class="p-8 md:p-12">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800">Our Commitment to You</h2>
+                <p class="text-gray-600 mb-6">At TrustCashMmf, we prioritize your financial security and peace of mind. Our dedicated team is trained to handle all inquiries with confidentiality and professionalism. We respond to all messages within 24 hours and value each customer interaction.</p>
+                <div class="bg-indigo-50 border-l-4 border-indigo-600 p-4">
+                    <p class="text-gray-700"><i class="fas fa-lock text-indigo-600 mr-2"></i>All communications are encrypted and secure. We never share your information with third parties.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c650decc-bd08-478b-902c-2d702a1dcb3a.png" alt="TrustCashMmf logo icon" class="mr-2 w-6 h-6">
+                        <h3 class="text-lg font-semibold">TrustCashMmf</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">Financial services you can trust since 2020.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Security</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Stay Connected</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for financial tips and updates.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none w-full">
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-r-lg hover:bg-indigo-700">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2025 TrustCashMmf. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically submit the form via AJAX
+            // For demo purposes, we'll just show the success message
+            
+            // Hide form
+            document.getElementById('contactForm').classList.add('hidden');
+            
+            // Show success message
+            document.getElementById('successMessage').classList.add('active-success');
+            
+            // Simulate server response delay
+            setTimeout(() => {
+                // Reset form
+                this.reset();
+                document.getElementById('contactForm').classList.remove('hidden');
+                document.getElementById('successMessage').classList.remove('active-success');
+            }, 5000);
+        });
+
+        // Enhanced form validation
+        const inputs = document.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                if (input.checkValidity()) {
+                    input.classList.remove('border-red-500');
+                    input.classList.add('border-green-500');
+                } else {
+                    input.classList.remove('border-green-500');
+                    input.classList.add('border-red-500');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

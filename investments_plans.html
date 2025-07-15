@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustCashMmf - Investment Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --accent: #10b981;
+            --dark: #1e293b;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            color: var(--dark);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        .tier-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .tier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tier-1 {
+            border-top-color: #10b981;
+        }
+        
+        .tier-2 {
+            border-top-color: #3b82f6;
+        }
+        
+        .tier-3 {
+            border-top-color: #8b5cf6;
+        }
+        
+        .tier-4 {
+            border-top-color: #ec4899;
+        }
+        
+        .modal {
+            transition: all 0.3s ease;
+        }
+        
+        .profit-badge {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm px-6">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-xl font-bold text-indigo-600">TrustCashMmf</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-900 hover:text-indigo-600 px-3 py-2 font-medium">Home</a>
+                    <a href="about.html" class="text-gray-500 hover:text-indigo-600 px-3 py-2 font-medium">About</a>
+                    <a href="Investments plans.html" class="text-gray-500 hover:text-indigo-600 px-3 py-2 font-medium">Investment Plans</a>
+                    <a href="howitworks.html" class="text-gray-500 hover:text-indigo-600 px-3 py-2 font-medium">How It Works</a>
+                    <a href="Contacts.html" class="text-gray-500 hover:text-indigo-600 px-3 py-2 font-medium">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <!-- Mobile menu button -->
+                    <button class="text-gray-500 hover:text-indigo-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="gradient-bg text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="w-full md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-4">TrustCashMmf Investment Plans</h1>
+                    <p class="text-xl opacity-90">Grow your wealth with our carefully crafted investment tiers. Start earning daily profits today!</p>
+                    
+                    <div class="mt-8 flex items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c7591ba1-2572-4acf-bd53-217527741cb5.png" alt="Happy clients counting money and smiling in modern office" class="rounded-lg shadow-lg w-full max-w-md">
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 flex justify-end">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a965d86c-c8ae-4968-bc3d-b08b692259c1.png" alt="Analytical dashboard showing investment growth charts and financial metrics" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4">Our Investment Tiers</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Choose the investment plan that matches your financial goals. With daily profits and instant withdrawals, growing your money has never been easier.</p>
+        </div>
+        
+        <!-- Investment Tiers -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <!-- Tier 1 -->
+            <div class="tier-card tier-1 bg-white rounded-lg p-8 flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-xl font-bold text-gray-800">Basic Tier</h3>
+                    <span class="profit-badge bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full">10% Daily</span>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="text-4xl font-bold mb-2">500 - 1,999 KSH</div>
+                    <div class="text-gray-500">Minimum Investment</div>
+                </div>
+                
+                <ul class="space-y-3 mb-8 flex-grow">
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Minimum deposit: 500 KSH</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Minimum withdrawal: 50 KSH</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Referral bonus: 12%</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Daily profit: 10%</span>
+                    </li>
+                </ul>
+                
+                <button onclick="openModal('basic-tier')" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                    Invest Now
+                </button>
+            </div>
+            
+            <!-- Tier 2 -->
+            <div class="tier-card tier-2 bg-white rounded-lg p-8 flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-xl font-bold text-gray-800">Silver Tier</h3>
+                    <span class="profit-badge bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">12% Daily</span>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="text-4xl font-bold mb-2">2,000 - 9,999 KSH</div>
+                    <div class="text-gray-500">Minimum Investment</div>
+                </div>
+                
+                <ul class="space-y-3 mb-8 flex-grow">
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Minimum deposit: 2,000 KSH</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Minimum withdrawal: 50 KSH</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Referral bonus: 12%</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Daily profit: 12%</span>
+                    </li>
+                </ul>
+                
+                <button onclick="openModal('silver-tier')" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                    Invest Now
+                </button>
+            </div>
+            
+            <!-- Tier 3 -->
+            <div class="tier-card tier-3 bg-white rounded-lg p-8 flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-xl font-bold text-gray-800">Gold Tier</h3>
+                    <span class="profit-badge bg-purple-100 text-purple-800 text-sm font-semibold px-3 py-1 rounded-full">14% Daily</span>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="text-4xl font-bold mb-2">10,000 - 49,999 KSH</div>
+                    <div class="text-gray-500">Minimum Investment</div>
+                </div>
+                
+                <ul class="space-y-3 mb-8 flex-grow">
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Minimum deposit: 10,000 KSH</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Minimum withdrawal: 50 KSH</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Referral bonus: 12%</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Daily profit: 14%</span>
+                    </li>
+                </ul>
+                
+                <button onclick="openModal('gold-tier')" class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                    Invest Now
+                </button>
+            </div>
+            
+            <!-- Tier 4 -->
+            <div class="tier-card tier-4 bg-white rounded-lg p-8 flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-xl font-bold text-gray-800">Platinum Tier</h3>
+                    <span class="profit-badge bg-pink-100 text-pink-800 text-sm font-semibold px-3 py-1 rounded-full">16% Daily</span>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="text-4xl font-bold mb-2">50,000+ KSH</div>
+                    <div class="text-gray-500">Minimum Investment</div>
+                </div>
+                
+                <ul class="space-y-3 mb-8 flex-grow">
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Minimum deposit: 50,000 KSH</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Minimum withdrawal: 50 KSH</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Referral bonus: 12%</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Daily profit: 16%</span>
+                    </li>
+                </ul>
+                
+                <button onclick="openModal('platinum-tier')" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                    Invest Now
+                </button>
+            </div>
+        </div>
+        
+        <!-- Investment Calculator -->
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8 mb-16">
+            <h2 class="text-2xl font-bold mb-6">Investment Calculator</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="amount">
+                            Investment Amount (KSH)
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="amount" type="number" placeholder="Enter amount" min="500">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="days">
+                            Investment Duration (Days)
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="days" type="number" placeholder="Number of days" min="1">
+                    </div>
+                    
+                    <button onclick="calculateProfit()" class="gradient-bg hover:opacity-90 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Calculate Profit
+                    </button>
+                </div>
+                
+                <div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-lg mb-4">Projected Returns</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span>Daily Profit Percentage:</span>
+                                <span id="profit-percentage" class="font-medium">-</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Daily Profit Amount:</span>
+                                <span id="daily-profit" class="font-medium">-</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Total Profit After Duration:</span>
+                                <span id="total-profit" class="font-medium">-</span>
+                            </div>
+                            <div class="flex justify-between font-bold text-lg pt-2 border-t border-gray-200">
+                                <span>Total Amount:</span>
+                                <span id="total-amount" class="text-green-600">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Investment Modal -->
+    <div id="investment-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg max-w-md w-full p-6 relative animate__animated animate__fadeIn">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <h2 id="modal-title" class="text-2xl font-bold mb-4">Invest in <span id="tier-name"></span></h2>
+            <p id="modal-description" class="text-gray-600 mb-6"></p>
+            
+            <div class="mb-6">
+                <img id="tier-image" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7b896ca2-63d9-496a-8684-2a9cbf1d13ee.png" alt="Investment tier visualization chart showing growth projections" class="w-full rounded-lg mb-4">
+                
+                <div id="tier-details" class="space-y-2 mb-6"></div>
+            </div>
+            
+            <form id="investment-form" class="space-y-4">
+                <div>
+                    <label for="investment-amount" class="block text-sm font-medium text-gray-700">Investment Amount (KSH)</label>
+                    <input type="number" id="investment-amount" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+                </div>
+                
+                <div>
+                    <label for="payment-method" class="block text-sm font-medium text-gray-700">Payment Method</label>
+                    <select id="payment-method" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                        <option>M-Pesa</option>
+                        <option>Airtel Money</option>
+                        <option>Bank Transfer</option>
+                        <option>Credit Card</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="phone-number" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <input type="tel" id="phone-number" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g. 0712345678" required>
+                </div>
+                
+                <button type="submit" class="w-full flex justify-center gradient-bg hover:opacity-90 text-white font-bold py-2 px-4 rounded-md transition duration-300">
+                    Proceed to Payment
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">TrustCashMmf -Investment Platform</h3>
+                    <p class="opacity-75 max-w-md">Helping you grow your wealth through smart investments and financial planning.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="font-bold mb-4">Navigation</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="opacity-75 hover:opacity-100">Home</a></li>
+                            <li><a href="about.html" class="opacity-75 hover:opacity-100">About</a></li>
+                            <li><a href="investments_plans.html" class="opacity-75 hover:opacity-100">Investment Plans</a></li>
+                            <li><a href="howitworks.html" class="opacity-75 hover:opacity-100">How It Works</a></li>
+                            <li><a href="Contacts.html" class="opacity-75 hover:opacity-100">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4">Legal</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="opacity-75 hover:opacity-100">Terms</a></li>
+                            <li><a href="#" class="opacity-75 hover:opacity-100">Privacy</a></li>
+                            <li><a href="#" class="opacity-75 hover:opacity-100">Security</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4">Support</h4>
+                        <ul class="space-y-2">
+                            <li><a href="Contacts.html" class="opacity-75 hover:opacity-100">Help Center</a></li>
+                            <li><a href="Contacts.html" class="opacity-75 hover:opacity-100">Contact Us</a></li>
+                            <li><a href="#" class="opacity-75 hover:opacity-100">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-sm opacity-75 text-center">
+                © 2025 TrustCashMmf -  Investment Platform. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Tier information
+        const tiers = {
+            'basic-tier': {
+                name: 'Basic Tier',
+                description: 'Start your investment journey with our entry-level plan. Perfect for beginners with modest capital.',
+                range: '500 - 1,999 KSH',
+                minDeposit: '500 KSH',
+                minWithdrawal: '50 KSH',
+                referralBonus: '12%',
+                dailyProfit: '10%',
+                image: 'https://placehold.co/600x300?text=Basic+Tier\n500-1,999+KSH\n10%+Daily'
+            },
+            'silver-tier': {
+                name: 'Silver Tier',
+                description: 'Elevate your investment with our mid-range plan. Higher returns for growing your portfolio.',
+                range: '2,000 - 9,999 KSH',
+                minDeposit: '2,000 KSH',
+                minWithdrawal: '50 KSH',
+                referralBonus: '12%',
+                dailyProfit: '12%',
+                image: 'https://placehold.co/600x300?text=Silver+Tier\n2,000-9,999+KSH\n12%+Daily'
+            },
+            'gold-tier': {
+                name: 'Gold Tier',
+                description: 'Premium investment for serious investors. Significant returns on substantial capital.',
+                range: '10,000 - 49,999 KSH',
+                minDeposit: '10,000 KSH',
+                minWithdrawal: '50 KSH',
+                referralBonus: '12%',
+                dailyProfit: '14%',
+                image: 'https://placehold.co/600x300?text=Gold+Tier\n10,000-49,999+KSH\n14%+Daily'
+            },
+            'platinum-tier': {
+                name: 'Platinum Tier',
+                description: 'Our highest investment tier for maximum returns. Ideal for large-scale investors.',
+                range: '50,000+ KSH',
+                minDeposit: '50,000 KSH',
+                minWithdrawal: '50 KSH',
+                referralBonus: '12%',
+                dailyProfit: '16%',
+                image: 'https://placehold.co/600x300?text=Platinum+Tier\n50,000++KSH\n16%+Daily'
+            }
+        };
+        
+        // Modal functions
+        function openModal(tierId) {
+            const modal = document.getElementById('investment-modal');
+            const tier = tiers[tierId];
+            
+            document.getElementById('tier-name').textContent = tier.name;
+            document.getElementById('modal-title').textContent = `Invest in ${tier.name}`;
+            document.getElementById('modal-description').textContent = tier.description;
+            document.getElementById('tier-image').src = tier.image;
+            
+            const detailsContainer = document.getElementById('tier-details');
+            detailsContainer.innerHTML = `
+                <div class="flex justify-between py-2 border-b border-gray-100">
+                    <span class="text-gray-500">Investment Range:</span>
+                    <span class="font-medium">${tier.range}</span>
+                </div>
+                <div class="flex justify-between py-2 border-b border-gray-100">
+                    <span class="text-gray-500">Minimum Deposit:</span>
+                    <span class="font-medium">${tier.minDeposit}</span>
+                </div>
+                <div class="flex justify-between py-2 border-b border-gray-100">
+                    <span class="text-gray-500">Minimum Withdrawal:</span>
+                    <span class="font-medium">${tier.minWithdrawal}</span>
+                </div>
+                <div class="flex justify-between py-2 border-b border-gray-100">
+                    <span class="text-gray-500">Referral Bonus:</span>
+                    <span class="font-medium">${tier.referralBonus}</span>
+                </div>
+                <div class="flex justify-between py-2 border-b border-gray-100">
+                    <span class="text-gray-500">Daily Profit:</span>
+                    <span class="font-medium">${tier.dailyProfit}</span>
+                </div>
+            `;
+            
+            // Set the min amount for the investment form
+            document.getElementById('investment-amount').min = tier.minDeposit.split(' ')[0];
+            document.getElementById('investment-amount').placeholder = `Min: ${tier.minDeposit}`;
+            
+            modal.classList.remove('hidden');
+        }
+        
+        function closeModal() {
+            document.getElementById('investment-modal').classList.add('hidden');
+        }
+        
+        // Investment form submit handler
+        document.getElementById('investment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const amount = document.getElementById('investment-amount').value;
+            const paymentMethod = document.getElementById('payment-method').value;
+            const phoneNumber = document.getElementById('phone-number').value;
+            
+            if (!amount || !phoneNumber) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Here you would normally process the payment
+            alert(`Processing payment of ${amount} KSH via ${paymentMethod} to phone number ${phoneNumber}`);
+            
+            // Close modal after submission
+            closeModal();
+        });
+        
+        // Calculate projected profit
+        function calculateProfit() {
+            const amountInput = document.getElementById('amount');
+            const daysInput = document.getElementById('days');
+            const amount = parseFloat(amountInput.value);
+            const days = parseInt(daysInput.value);
+            
+            if (!amount || !days || amount < 500) {
+                alert('Please enter valid amount and duration');
+                return;
+            }
+            
+            // Determine profit percentage based on amount
+            let profitPercentage;
+            if (amount >= 50000) {
+                profitPercentage = 16;
+            } else if (amount >= 10000) {
+                profitPercentage = 14;
+            } else if (amount >= 2000) {
+                profitPercentage = 12;
+            } else {
+                profitPercentage = 10;
+            }
+            
+            const dailyProfit = (amount * profitPercentage / 100).toFixed(2);
+            const totalProfit = (dailyProfit * days).toFixed(2);
+            const totalAmount = (parseFloat(amount) + parseFloat(totalProfit)).toFixed(2);
+            
+            document.getElementById('profit-percentage').textContent = `${profitPercentage}%`;
+            document.getElementById('daily-profit').textContent = `${dailyProfit} KSH`;
+            document.getElementById('total-profit').textContent = `${totalProfit} KSH`;
+            document.getElementById('total-amount').textContent = `${totalAmount} KSH`;
+        }
+    </script>
+</body>
+</html>
+

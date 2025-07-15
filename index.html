@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustCashMmf - Smart Investment Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0356f0 0%, #0068f0 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .profit-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #2ecc71;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1ee25a96-12af-4134-8e36-e83eeb1c3fdf.png" alt="TrustCashMmf logo with secure vault and dollar sign symbol" class="mr-3 rounded-full w-8 h-8" alt="TrustCashMmf logo with gold coins and upward growth arrow" class="h-10 w-10">
+                <span class="text-xl font-bold">TrustCashMmf</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-yellow-300 font-medium">Home</a>
+                <a href="about.html" class="hover:text-yellow-300">About</a>
+                <a href="investments_plans.html" class="hover:text-yellow-300">Plans</a>
+                <a href="Contacts.html" class="hover:text-yellow-300">Contact</a>
+                <a href="howitworks.html" class="hover:text-yellow-300">How it works</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="login.html" class="hover:text-yellow-300">Login</a>
+                <a href="register.html" class="bg-white text-blue-600 px-4 py-2 rounded-full font-medium hover:bg-blue-100 transition">Register</a>
+            </div>
+            <button class="md:hidden text-2xl" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden container mx-auto px-4 py-2 bg-blue-700" id="mobile-menu">
+            <div class="flex flex-col space-y-3">
+                <a href="index.html" class="hover:text-yellow-300 block">Home</a>
+                <a href="about.html" class="hover:text-yellow-300 block">About</a>
+                <a href="how-it-works.html" class="hover:text-yellow-300 block">How It Works</a>
+                <a href="In plans.html" class="hover:text-yellow-300 block">Plans</a>
+                <a href="Contact.html" class="hover:text-yellow-300 block">Contact</a>
+                <div class="border-t border-blue-600 pt-2">
+                    <a href="login.html" class="hover:text-yellow-300 block">Login</a>
+                    <a href="register.html" class="bg-white text-blue-600 px-4 py-2 rounded-full font-medium hover:bg-blue-100 inline-block mt-2">Register</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Smart Way To Grow Your Money</h1>
+                <p class="text-xl mb-8">Invest with TrustCashMmf and enjoy daily profits with our secure investment platform. Minimum deposit of just Ksh 500.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="register.html" class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold text-center hover:bg-blue-100 transition">Get Started</a>
+                    <a href="howitworks.html" class="border-2 border-white text-white px-6 py-3 rounded-full font-bold text-center hover:bg-white hover:text-blue-600 transition">How It Works</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b8b1dceb-5e0e-4736-b6e0-cedc591121ad.png" alt="Happy investor using laptop to check investment growth with upward trending graphs and currency symbols" class="rounded-lg shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                <div class="bg-gray-100 p-6 rounded-xl">
+                    <div class="text-blue-600 text-4xl font-bold mb-2">500+</div>
+                    <div class="text-gray-600">Happy Investors</div>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-xl">
+                    <div class="text-blue-600 text-4xl font-bold mb-2">100%</div>
+                    <div class="text-gray-600">Secure Platform</div>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-xl">
+                    <div class="text-blue-600 text-4xl font-bold mb-2">12%</div>
+                    <div class="text-gray-600">Referral Bonus</div>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-xl">
+                    <div class="text-blue-600 text-4xl font-bold mb-2">24/7</div>
+                    <div class="text-gray-600">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">How To Get Started</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Start earning in just 3 simple steps</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">1</div>
+                    <h3 class="text-xl font-bold mb-2">Create Account</h3>
+                    <p class="text-gray-600">Register in less than 2 minutes with our simple form</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">2</div>
+                    <h3 class="text-xl font-bold mb-2">Make Deposit</h3>
+                    <p class="text-gray-600">Choose your plan and deposit from Ksh 500</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">3</div>
+                    <h3 class="text-xl font-bold mb-2">Earn Daily</h3>
+                    <p class="text-gray-600">Receive profits daily and withdraw anytime</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referral Program Section -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="text-3xl font-bold mb-4">Earn 12% Referral Bonus</h2>
+                <p class="text-xl mb-6">Invite friends to join TrustCashMmf and earn 12% of their first deposit.</p>
+                <p class="mb-6">Share your referral link and watch your earnings grow with each new investor you bring in.</p>
+                <div class="flex items-center">
+                    <div class="bg-white text-gray-800 px-4 py-3 rounded-l-lg w-full max-w-md overflow-x-auto font-mono">https://trustcashmmf.com/ref/johndoe123</div>
+                    <button class="bg-yellow-400 text-gray-800 px-4 py-3 rounded-r-lg font-bold hover:bg-yellow-300 transition">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a3e302b9-a6f2-4178-97b4-124c165086c3.png" alt="Group of diverse people celebrating successful investments with digital devices showing growth charts" class="rounded-lg shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">What Our Investors Say</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Hear from people who have grown their money with TrustCashMmf</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/254edb08-d74f-4eea-aa64-496a64134d89.png" alt="Portrait of satisfied investor James Mwangi smiling" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Man G</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Started with 5,000 Ksh and now earning daily profits. The withdrawals are instant which I really appreciate!"</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b87aa158-e137-435b-965f-52b1be42f186.png" alt="Portrait of happy investor Sarah Atieno wearing professional attire" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Man G</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The Gold Plan has been amazing. My investments have grown faster than I expected. Customer service is excellent too."</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/94a47480-3635-4b66-9ed6-8b5d67644bf3.png" alt="Portrait of investor David Omondi looking confident with city background" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Prince</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"I was skeptical at first but after trying with 1,000 Ksh and getting daily payments, I'm now investing more. Referral bonus is a great addition."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2f5369af-91d6-4c67-9318-c0d3518a39e5.png" alt="TrustCashMmf logo in white background" class="h-8 w-8">
+                        <span class="text-xl font-bold">TrustCashMmf</span>
+                    </div>
+                    <p class="text-gray-400">Smart investments for secure financial growth. Join us today and start earning daily profits.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="howitworks.html" class="text-gray-400 hover:text-white transition">How It Works</a></li>
+                        <li><a href="investments_plans.html" class="text-gray-400 hover:text-white transition">Plans</a></li>
+                        <li><a href="Contacts.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Risk Disclosure</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">AML Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Connect With Us</h4>
+                        <a href="whatsapplink.html" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-500 transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">Subscribe to our newsletter</p>
+                    <div class="flex mt-2">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg bg-gray-700 text-white w-full focus:outline-none">
+                        <button class="bg-blue-600 px-4 py-2 rounded-r-lg hover:bg-blue-700 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 TrustCashMmf. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+

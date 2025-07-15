@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustCashMMF - Investor Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .form-section {
+            transition: all 0.3s ease;
+        }
+        .form-section:not(.active) {
+            display: none;
+        }
+        .progress-step.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .password-toggle {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .password-toggle:hover {
+            color: #2563eb;
+        }
+        .security-badge {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <!-- Header with back to home button -->
+        <header class="flex justify-between items-center mb-8">
+            <div class="flex items-center">
+                <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Return to Home
+                </a>
+            </div>
+            <div class="text-right">
+                <h1 class="text-3xl font-bold text-gray-800">TrustCashMMF</h1>
+                <p class="text-blue-600 font-medium">Secure Investment Portal</p>
+            </div>
+        </header>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <!-- Progress indicator -->
+            <div class="bg-gray-100 p-4">
+                <div class="flex justify-between relative">
+                    <div class="absolute top-1/2 h-1 bg-gray-300 w-full -translate-y-1/2 z-0"></div>
+                    <div id="progress-bar" class="absolute top-1/2 h-1 bg-blue-600 -translate-y-1/2 z-10" style="width: 25%"></div>
+                    <div class="flex justify-between w-full">
+                        <div class="progress-step active z-20 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center">1</div>
+                        <div class="progress-step z-20 w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center">2</div>
+                        <div class="progress-step z-20 w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center">3</div>
+                        <div class="progress-step z-20 w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center">4</div>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-2 text-sm text-gray-600">
+                    <span>Personal Info</span>
+                    <span>Account Details</span>
+                    <span>Investment Plan</span>
+                    <span>Confirmation</span>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <form id="registration-form" class="p-6">
+                <!-- Section 1: Personal Information -->
+                <div class="form-section active" id="section-1">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Personal Information</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="country" class="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                            <select id="country" name="country" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                <option value="">Select Country</option>
+                                <option value="US">United States</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="CA">Canada</option>
+                                <option value="AU">Australia</option>
+                                <option value="NG">Nigeria</option>
+                                <!-- More countries would be added here -->
+                            </select>
+                        </div>
+                        <div>
+                            <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                            <input type="text" id="address" name="address" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex justify-between">
+                        <a href="index.html" class="text-gray-600 hover:text-gray-800 flex items-center">
+                            <i class="fas fa-arrow-left mr-2"></i> Back to Home
+                        </a>
+                        <button type="button" onclick="nextSection(1, 2)" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
+                            Next: Account Details <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Section 2: Account Details -->
+                <div class="form-section" id="section-2">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Account Details</h2>
+                    
+                    <div class="mb-4">
+                        <div class="flex justify-between items-center mb-1">
+                            <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                            <span id="username-available" class="text-xs hidden text-green-600"><i class="fas fa-check-circle"></i> Available</span>
+                            <span id="username-taken" class="text-xs hidden text-red-600"><i class="fas fa-times-circle"></i> Taken</span>
+                        </div>
+                        <input type="text" id="username" name="username" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required oninput="checkUsername()">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="relative">
+                            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                            <div class="relative">
+                                <input type="password" id="password" name="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                <span class="password-toggle absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" onclick="togglePassword('password')">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-1">
+                                Must contain at least 8 characters, one uppercase letter, one number, and one special character.
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                            <div class="relative">
+                                <input type="password" id="confirmPassword" name="confirmPassword" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                <span class="password-toggle absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" onclick="togglePassword('confirmPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex justify-between">
+                        <button type="button" onclick="prevSection(2, 1)" class="text-gray-600 hover:text-gray-800 flex items-center">
+                            <i class="fas fa-arrow-left mr-2"></i> Back
+                        </button>
+                        <button type="button" onclick="nextSection(2, 3)" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
+                            Next: Investment Plan <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Section 3: Investment Plan -->
+                <div class="form-section" id="section-3">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Select Investment Plan</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="border rounded-lg p-4 hover:border-blue-500 transition-colors cursor-pointer investment-option" data-plan="basic">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg">Basic Plan</h3>
+                                <div class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">10% ROI</div>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">Minimum: $500</p>
+                            <p class="text-gray-600 text-sm">Duration: 30 days</p>
+                            <div class="mt-4">
+                                <div class="flex items-center text-sm text-gray-500">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span>24/7 Support</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-500 mt-1">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span>Daily Payouts</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border border-blue-500 rounded-lg p-4 bg-blue-50 transition-colors cursor-pointer investment-option" data-plan="pro">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg">Pro Plan</h3>
+                                <div class="bg-blue-600 text-white text-xs px-2 py-1 rounded">25% ROI</div>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">Minimum: $2,000</p>
+                            <p class="text-gray-600 text-sm">Duration: 90 days</p>
+                            <div class="mt-4">
+                                <div class="flex items-center text-sm text-gray-500">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span>Premium Support</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-500 mt-1">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span>Weekly Payouts</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-500 mt-1">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span>Risk Management</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border rounded-lg p-4 hover:border-blue-500 transition-colors cursor-pointer investment-option" data-plan="premium">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg">Premium Plan</h3>
+                                <div class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">40% ROI</div>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">Minimum: $10,000</p>
+                            <p class="text-gray-600 text-sm">Duration: 180 days</p>
+                            <div class="mt-4">
+                                <div class="flex items-center text-sm text-gray-500">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span>VIP Support</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-500 mt-1">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span>Monthly Payouts</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-500 mt-1">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span>Dedicated Manager</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-500 mt-1">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span>Custom Strategy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <label for="initialDeposit" class="block text-sm font-medium text-gray-700 mb-1">Initial Deposit Amount ($)</label>
+                        <input type="number" id="initialDeposit" name="initialDeposit" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Payment Method</label>
+                        <div class="flex flex-wrap gap-3">
+                            <div class="flex items-center">
+                                <input id="credit-card" name="paymentMethod" type="radio" class="h-4 w-4 text-blue-600 focus:ring-blue-500" value="credit-card" checked>
+                                <label for="credit-card" class="ml-2 flex items-center">
+                                    <i class="fab fa-cc-visa text-blue-500 mr-1"></i>
+                                    <i class="fab fa-cc-mastercard text-red-500 mr-1"></i>
+                                    Credit Card
+                                </label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="bank-transfer" name="paymentMethod" type="radio" class="h-4 w-4 text-blue-600 focus:ring-blue-500" value="bank-transfer">
+                                <label for="bank-transfer" class="ml-2 flex items-center">
+                                    <i class="fas fa-university text-blue-500 mr-1"></i>
+                                    Bank Transfer
+                                </label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="crypto" name="paymentMethod" type="radio" class="h-4 w-4 text-blue-600 focus:ring-blue-500" value="crypto">
+                                <label for="crypto" class="ml-2 flex items-center">
+                                    <i class="fab fa-bitcoin text-yellow-500 mr-1"></i>
+                                    Cryptocurrency
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <input type="hidden" id="selectedPlan" name="selectedPlan" value="pro">
+                    
+                    <div class="mt-8 flex justify-between">
+                        <button type="button" onclick="prevSection(3, 2)" class="text-gray-600 hover:text-gray-800 flex items-center">
+                            <i class="fas fa-arrow-left mr-2"></i> Back
+                        </button>
+                        <button type="button" onclick="nextSection(3, 4)" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
+                            Next: Confirmation <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Section 4: Confirmation -->
+                <div class="form-section" id="section-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Confirm Your Details</h2>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="font-bold text-lg mb-2 text-blue-600">Personal Information</h3>
+                                <div class="space-y-2">
+                                    <p><span class="font-medium">Full Name:</span> <span id="confirm-fullName" class="text-gray-700">John Doe</span></p>
+                                    <p><span class="font-medium">Email:</span> <span id="confirm-email" class="text-gray-700">john@example.com</span></p>
+                                    <p><span class="font-medium">Phone:</span> <span id="confirm-phone" class="text-gray-700">+1234567890</span></p>
+                                    <p><span class="font-medium">Date of Birth:</span> <span id="confirm-dob" class="text-gray-700">01/01/1990</span></p>
+                                    <p><span class="font-medium">Address:</span> <span id="confirm-address" class="text-gray-700">123 Main St, City</span></p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-2 text-blue-600">Account & Investment</h3>
+                                <div class="space-y-2">
+                                    <p><span class="font-medium">Username:</span> <span id="confirm-username" class="text-gray-700">johndoe123</span></p>
+                                    <p><span class="font-medium">Plan:</span> <span id="confirm-plan" class="text-gray-700">Pro Plan (25% ROI)</span></p>
+                                    <p><span class="font-medium">Initial Deposit:</span> <span id="confirm-deposit" class="text-gray-700">$2,000.00</span></p>
+                                    <p><span class="font-medium">Payment Method:</span> <span id="confirm-payment" class="text-gray-700">Credit Card</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <input type="checkbox" id="terms" name="terms" class="h-4 w-4 text-blue-600 focus:ring-blue-500" required>
+                        <label for="terms" class="ml-2 text-sm text-gray-600">
+                            I agree to the <a href="#" class="text-blue-600 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a> of TrustCashMMF
+                        </label>
+                    </div>
+                    
+                    <div class="flex items-center p-4 bg-blue-50 rounded-lg mb-6">
+                        <div class="mr-4">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/942d0a88-5fb5-420b-8d51-2764e12c5e66.png" alt="Padlock icon with shield symbol representing security and trust" class="w-12 h-12">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-blue-800">Your information is secure</h4>
+                            <p class="text-sm text-gray-600">We use 256-bit encryption to protect your personal and financial data.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 flex justify-between">
+                        <button type="button" onclick="prevSection(4, 3)" class="text-gray-600 hover:text-gray-800 flex items-center">
+                            <i class="fas fa-arrow-left mr-2"></i> Back
+                        </button>
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold transition-colors">
+                            Complete Registration <i class="fas fa-check-circle ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <footer class="mt-12 text-center text-gray-500 text-sm">
+            <div class="flex justify-center space-x-4 mb-4">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0e83e444-de12-4c09-961b-f1fe96213908.png" alt="TrustCashMMF security certification badge" class="h-8">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e51277fe-94d7-46da-965d-30c99ffa4d2d.png" alt="PCI DSS compliance certification badge" class="h-8">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4f2651a0-d953-479d-955b-392ef5877337.png" alt="SSL secured encryption certificate badge" class="h-8">
+            </div>
+            <p>© 2025 TrustCashMMF. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Form navigation
+        function nextSection(current, next) {
+            // Validate current section before proceeding
+            if (!validateSection(current)) return;
+            
+            // Update progress bar
+            document.getElementById('progress-bar').style.width = (next * 25) + '%';
+            
+            // Update progress steps
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                if (index < next) {
+                    step.classList.add('active');
+                    step.classList.remove('bg-gray-300', 'text-gray-600');
+                    step.classList.add('bg-blue-600', 'text-white');
+                } else {
+                    step.classList.remove('active', 'bg-blue-600', 'text-white');
+                    step.classList.add('bg-gray-300', 'text-gray-600');
+                }
+            });
+            
+            // Switch sections
+            document.getElementById(`section-${current}`).classList.remove('active');
+            document.getElementById(`section-${next}`).classList.add('active');
+            
+            // Update confirmation section if we're on the last step
+            if (next === 4) {
+                updateConfirmation();
+            }
+        }
+        
+        function prevSection(current, prev) {
+            // Update progress bar
+            document.getElementById('progress-bar').style.width = (prev * 25) + '%';
+            
+            // Update progress steps
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                if (index < current) {
+                    step.classList.add('active');
+                    step.classList.remove('bg-gray-300', 'text-gray-600');
+                    step.classList.add('bg-blue-600', 'text-white');
+                } else {
+                    step.classList.remove('active', 'bg-blue-600', 'text-white');
+                    step.classList.add('bg-gray-300', 'text-gray-600');
+                }
+            });
+            
+            // Switch sections
+            document.getElementById(`section-${current}`).classList.remove('active');
+            document.getElementById(`section-${prev}`).classList.add('active');
+        }
+        
+        // Section validation
+        function validateSection(sectionNumber) {
+            let isValid = true;
+            
+            if (sectionNumber === 1) {
+                const requiredFields = ['fullName', 'email', 'phone', 'dob', 'country', 'address'];
+                requiredFields.forEach(id => {
+                    const field = document.getElementById(id);
+                    if (!field.value.trim()) {
+                        field.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        field.classList.remove('border-red-500');
+                    }
+                });
+                
+                // Simple email validation
+                const email = document.getElementById('email');
+                if (!email.value.match(/^\S+@\S+\.\S+$/)) {
+                    email.classList.add('border-red-500');
+                    isValid = false;
+                }
+            } else if (sectionNumber === 2) {
+                const password = document.getElementById('password');
+                const confirmPassword = document.getElementById('confirmPassword');
+                
+                // Password requirements: min 8 chars, 1 uppercase, 1 number, 1 special char
+                const hasMinLength = password.value.length >= 8;
+                const hasUpperCase = /[A-Z]/.test(password.value);
+                const hasNumber = /[0-9]/.test(password.value);
+                const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password.value);
+                const passwordsMatch = password.value === confirmPassword.value;
+                
+                if (!hasMinLength || !hasUpperCase || !hasNumber || !hasSpecialChar) {
+                    alert('Password must contain at least 8 characters, one uppercase letter, one number, and one special character.');
+                    isValid = false;
+                }
+                
+                if (!passwordsMatch) {
+                    confirmPassword.classList.add('border-red-500');
+                    alert('Passwords do not match.');
+                    isValid = false;
+                } else {
+                    confirmPassword.classList.remove('border-red-500');
+                }
+            } else if (sectionNumber === 3) {
+                const initialDeposit = document.getElementById('initialDeposit');
+                const selectedPlan = document.getElementById('selectedPlan').value;
+                
+                // Check if deposit meets plan minimums
+                const planMinDeposits = {
+                    basic: 500,
+                    pro: 2000,
+                    premium: 10000
+                };
+                
+                const minDeposit = planMinDeposits[selectedPlan] || 0;
+                if (parseFloat(initialDeposit.value) < minDeposit) {
+                    alert(`Minimum deposit for selected plan is $${minDeposit}`);
+                    isValid = false;
+                }
+            }
+            
+            return isValid;
+        }
+        
+        // Update confirmation section with entered values
+        function updateConfirmation() {
+            document.getElementById('confirm-fullName').textContent = document.getElementById('fullName').value;
+            document.getElementById('confirm-email').textContent = document.getElementById('email').value;
+            document.getElementById('confirm-phone').textContent = document.getElementById('phone').value;
+            document.getElementById('confirm-dob').textContent = document.getElementById('dob').value;
+            document.getElementById('confirm-address').textContent = document.getElementById('address').value;
+            document.getElementById('confirm-username').textContent = document.getElementById('username').value;
+            
+            const selectedPlan = document.getElementById('selectedPlan').value;
+            let planName = '';
+            if (selectedPlan === 'basic') planName = 'Basic Plan (10% ROI)';
+            else if (selectedPlan === 'pro') planName = 'Pro Plan (25% ROI)';
+            else planName = 'Premium Plan (40% ROI)';
+            document.getElementById('confirm-plan').textContent = planName;
+            
+            document.getElementById('confirm-deposit').textContent = '$' + parseFloat(document.getElementById('initialDeposit').value).toFixed(2);
+            
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+            document.getElementById('confirm-payment').textContent = paymentMethod ? 
+                paymentMethod.nextElementSibling.textContent.trim() : 'Not selected';
+        }
+        
+        // Toggle password visibility
+        function togglePassword(id) {
+            const input = document.getElementById(id);
+            const icon = input.nextElementSibling.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+        
+        // Check username availability (mock)
+        function checkUsername() {
+            const username = document.getElementById('username').value;
+            const available = document.getElementById('username-available');
+            const taken = document.getElementById('username-taken');
+            
+            // Mock check - in reality this would be an API call
+            if (username.length > 0) {
+                available.classList.remove('hidden');
+                taken.classList.add('hidden');
+            } else {
+                available.classList.add('hidden');
+                taken.classList.add('hidden');
+            }
+        }
+        
+        // Handle investment plan selection
+        document.querySelectorAll('.investment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.investment-option').forEach(opt => {
+                    opt.classList.remove('border-blue-500', 'bg-blue-50');
+                });
+                this.classList.add('border-blue-500', 'bg-blue-50');
+                document.getElementById('selectedPlan').value = this.getAttribute('data-plan');
+            });
+        });
+        
+        // Form submission
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!document.getElementById('terms').checked) {
+                alert('You must agree to the Terms of Service and Privacy Policy');
+                return;
+            }
+            
+            // Show success message (in a real app, this would submit to backend)
+            alert('Registration successful! Welcome to TrustCashMMF. Redirecting to your dashboard...');
+            // window.location.href = 'dashboard.html'; // Uncomment in real implementation
+        });
+    </script>
+</body>
+</html>
+
